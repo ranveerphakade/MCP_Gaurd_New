@@ -39,6 +39,10 @@ Thumbs.db
 Website/mcpso_*_cleaned.json 
 Website/*.json
 Crawler/*.json
-models/
+
+# Exclude training datasets but allow models
 mcp_guard_training_dataset.csv
 processed/
+
+# Ignore intermediate model checkpoints to save space
+models/final_security_classifier/checkpoint-*/
