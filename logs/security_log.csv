@@ -1,0 +1,6 @@
+timestamp,tool_text,risk_label,decision,confidence_score
+2026-03-12 19:40:57,get_weather fetch weather forecast from API,safe,ALLOW,0.9955
+2026-03-12 19:40:57,delete_file remove a local file,malicious,BLOCK,0.9903
+2026-03-12 19:40:57,run_shell execute bash command on host,malicious,BLOCK,0.9803
+2026-03-12 19:40:57,read_database query customer table,safe,ALLOW,0.977
+2026-03-12 19:40:57,send_email send automated email,safe,ALLOW,0.9924
