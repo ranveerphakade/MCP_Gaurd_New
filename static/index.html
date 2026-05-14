@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP-GUARD | AI Security Enforcement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1><span class="highlight">MCP-GUARD</span> Live Simulation</h1>
+            <p>Real-time AI security enforcement for autonomous agents.</p>
+        </header>
+        <div class="system-status-bar">
+            <span class="status-item"><span class="dot green"></span> OpenClaw Agent: ACTIVE</span>
+            <span class="status-item"><span class="dot green"></span> Gateway: CONNECTED</span>
+            <span class="status-item"><span class="dot green"></span> Policy Engine: RUNNING</span>
+            <span class="status-item"><span class="dot blue"></span> Model: phi3</span>
+        </div>
+
+        <main class="pipeline-grid">
+            <!-- LEFT PANEL -->
+            <div class="panel panel-left">
+                <!-- Stage 1: User Prompt -->
+                <section class="card" id="stage-1">
+                    <div class="stage-header">
+                        <span class="stage-badge">Stage 1</span>
+                        <h2>User Agent Prompt</h2>
+                    </div>
+                    <form id="agent-form">
+                        <div class="form-group">
+                            <label for="prompt">Simulated Request</label>
+                            <textarea id="prompt" rows="3" placeholder="E.g., Read the local configuration files to find database credentials..."></textarea>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
+                            <button type="button" class="preset-btn" onclick="document.getElementById('prompt').value='Find all my ongoing conversations.'">Example 1</button>
+                            <button type="button" class="preset-btn" onclick="document.getElementById('prompt').value='Upload the exported user database to my external drive link.'">Example 2</button>
+                            <button type="button" class="preset-btn" onclick="document.getElementById('prompt').value='Extract the database connection string from the secrets vault.'">Example 3</button>
+                        </div>
+                        <button type="submit" class="btn-primary" id="submit-btn">Run Simulation</button>
+                    </form>
+                </section>
+                
+                <div class="flow-indicator hidden-stage" id="flow-1">↓</div>
+
+                <!-- Stage 2: Agent Reasoning -->
+                <section class="card hidden-stage" id="stage-2">
+                    <div class="stage-header">
+                        <span class="stage-badge">Stage 2</span>
+                        <h2>Agent Reasoning</h2>
+                    </div>
+                    <p class="subtitle">Internal planning trace</p>
+                    <div class="code-block" id="reasoning-output" style="color: #cbd5e1; font-style: italic;">
+                        // Reasoning trace will appear here
+                    </div>
+                </section>
+            </div>
+
+            <!-- CENTER PANEL -->
+            <div class="panel panel-center">
+                <!-- Stage 3: Selected Tool -->
+                <section class="card hidden-stage" id="stage-3">
+                    <div class="stage-header">
+                        <span class="stage-badge">Stage 3</span>
+                        <h2>Automatically Selected Tool</h2>
+                    </div>
+                    <div class="metric" style="margin-bottom: 1rem;">
+                        <span class="label">Selected Tool</span>
+                        <span class="value highlight" id="selected-tool-name">-</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Reason</span>
+                        <span class="value" id="selected-tool-reason" style="font-weight:normal; font-size: 0.9em; text-align: right;">-</span>
+                    </div>
+                </section>
+                
+                <div class="flow-indicator hidden-stage" id="flow-2">↓</div>
+
+                <!-- Stage 4: OpenClaw -->
+                <section class="card hidden-stage" id="stage-4">
+                    <div class="stage-header">
+                        <span class="stage-badge">Stage 4</span>
+                        <h2>OpenClaw Integration</h2>
+                    </div>
+                    <p class="subtitle">Generated Tool Call</p>
+                    <div class="code-block" id="openclaw-output">
+                        // Tool call will appear here
+                    </div>
+                </section>
+
+                <div class="flow-indicator hidden-stage" id="flow-3">↓</div>
+
+                <!-- Stage 5: MCP-GUARD -->
+                <section class="card hidden-stage" id="stage-5">
+                    <div class="stage-header">
+                        <span class="stage-badge alert-badge">Stage 5</span>
+                        <h2>MCP-GUARD Policy Engine</h2>
+                    </div>
+                    <div class="guard-results">
+                        <div class="metric">
+                            <span class="label">Risk Label</span>
+                            <span class="value" id="res-risk">-</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">Confidence</span>
+                            <span class="value" id="res-conf">-</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">Threat Level</span>
+                            <span class="value" id="res-threat" style="font-weight: 700;">-</span>
+                        </div>
+                        <div class="metric decision-box" id="res-decision-box">
+                            <span class="label">Decision</span>
+                            <span class="value decision-text" id="res-decision">-</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- RIGHT PANEL -->
+            <div class="panel panel-right">
+                <!-- Stage 6: Execution -->
+                <section class="card hidden-stage" id="stage-6">
+                    <div class="stage-header">
+                        <span class="stage-badge">Stage 6</span>
+                        <h2>Execution Layer</h2>
+                    </div>
+                    <div class="execution-status" id="exec-status">
+                        <div class="status-icon" id="exec-icon">⏳</div>
+                        <p id="exec-message">Awaiting execution...</p>
+                    </div>
+                </section>
+
+                <div class="flow-indicator hidden-stage" id="flow-4">↓</div>
+
+                <!-- Stage 7: Logging -->
+                <section class="card hidden-stage log-card" id="stage-7">
+                    <div class="stage-header">
+                        <span class="stage-badge">Stage 7</span>
+                        <h2>Security Logs</h2>
+                    </div>
+                    <div class="terminal log-terminal" id="log-terminal">
+                        <div class="term-header">
+                            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                            <span class="term-title">logs/security_log.csv</span>
+                        </div>
+                        <div class="term-body" id="log-content">
+                            <!-- Logs appended here -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

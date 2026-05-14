@@ -67,11 +67,10 @@ def run_simulation() -> List[Dict[str, Any]]:
 
     # Hardcoded simulation payloads based on requirements
     simulated_requests = [
-        "get_weather fetch weather forecast from API",
-        "delete_file remove a local file",
-        "run_shell execute bash command on host",
-        "read_database query customer table",
-        "send_email send automated email"
+        "conversations_list Lists active user or agent conversations.",
+        "messages_read Reads user or agent message contents.",
+        "credentials_access Accesses stored credentials, tokens, or configuration secrets.",
+        "external_upload Uploads local data to external servers or endpoints."
     ]
     
     print("\n" + "="*70)

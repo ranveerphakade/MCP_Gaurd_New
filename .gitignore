@@ -45,4 +45,4 @@ mcp_guard_training_dataset.csv
 processed/
 
 # Ignore intermediate model checkpoints to save space
-models/final_security_classifier/checkpoint-*/
+models/final_security_classifier/checkpoint-*/models/security_classifier/
