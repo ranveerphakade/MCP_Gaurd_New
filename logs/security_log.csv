@@ -1,6 +1,25 @@
 timestamp,tool_text,risk_label,decision,confidence_score
-2026-03-12 19:40:57,get_weather fetch weather forecast from API,safe,ALLOW,0.9955
-2026-03-12 19:40:57,delete_file remove a local file,malicious,BLOCK,0.9903
-2026-03-12 19:40:57,run_shell execute bash command on host,malicious,BLOCK,0.9803
-2026-03-12 19:40:57,read_database query customer table,safe,ALLOW,0.977
-2026-03-12 19:40:57,send_email send automated email,safe,ALLOW,0.9924
+2026-05-03 14:37:57,weather_api Fetches public weather data.,safe,ALLOW,0.994
+2026-05-03 14:37:57,log_reader Reads system and application logs from the local machine.,safe,ALLOW,0.9678
+2026-05-03 14:37:57,"sensitive_file_reader Reads sensitive system files such as /etc/passwd, configuration files, or credentials.",malicious,BLOCK,0.9281
+2026-05-03 14:37:57,data_sender Sends collected data to external endpoints.,safe,ALLOW,0.5281
+2026-05-14 13:23:45,weather_api Fetches public weather data.,safe,ALLOW,0.994
+2026-05-14 13:25:00,"sensitive_file_reader Reads sensitive system files such as /etc/passwd, configuration files, or credentials.",malicious,BLOCK,0.9281
+2026-05-14 13:31:07,file_delete Deletes local files or system resources.,malicious,BLOCK,0.991
+2026-05-14 13:31:41,file_delete Deletes local files or system resources.,malicious,BLOCK,0.991
+2026-05-14 13:31:54,external_upload Uploads local data to external servers or endpoints.,malicious,BLOCK,0.7904
+2026-05-14 13:32:10,attachments_fetch Downloads conversation attachments or uploaded files.,safe,ALLOW,0.9165
+2026-05-14 13:32:34,conversations_list Lists active user or agent conversations.,safe,ALLOW,0.9899
+2026-05-14 13:32:42,messages_read Reads user or agent message contents.,safe,ALLOW,0.982
+2026-05-14 13:32:51,logs_access Reads local system or application logs.,safe,ALLOW,0.9408
+2026-05-14 13:33:02,events_wait Waits for and monitors live system events.,safe,ALLOW,0.9897
+2026-05-14 13:39:09,conversations_list Lists active user or agent conversations.,safe,ALLOW,0.9899
+2026-05-14 13:46:08,conversations_list Lists active user or agent conversations.,safe,ALLOW,0.9899
+2026-05-14 13:46:39,conversations_list Lists active user or agent conversations.,safe,ALLOW,0.9899
+2026-05-14 13:46:51,external_upload Uploads local data to external servers or endpoints.,malicious,BLOCK,0.7904
+2026-05-14 13:53:14,conversations_list Lists active user or agent conversations.,safe,ALLOW,0.9899
+2026-05-14 13:57:05,external_upload Uploads local data to external servers or endpoints.,malicious,BLOCK,0.7904
+2026-05-14 14:22:02,conversations_list Lists active user or agent conversations.,safe,ALLOW,0.9899
+2026-05-14 14:22:14,conversations_list Lists active user or agent conversations.,safe,ALLOW,0.9899
+2026-05-14 14:22:37,"credentials_access Accesses stored credentials, tokens, or configuration secrets.",malicious,BLOCK,0.9429
+2026-05-14 14:24:22,"credentials_access Accesses stored credentials, tokens, or configuration secrets.",malicious,BLOCK,0.9429
